@@ -1,6 +1,7 @@
 import "./globals.css";
 import Link from "next/link";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 export const metadata = {
   metadataBase: new URL("https://hashimnaveed.com"), // replace after deploy
   title: {
@@ -134,6 +135,8 @@ export default function RootLayout({
         </main>
 
         <div className="footer-space" />
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
