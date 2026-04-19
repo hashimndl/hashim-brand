@@ -1,6 +1,12 @@
 import "./globals.css";
 import Link from "next/link";
 import Script from "next/script";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata = {
   title: {
@@ -20,7 +26,7 @@ export const metadata = {
     title: "Hashim Naveed",
     description:
       "Senior Technology Consultant specializing in AI infrastructure, cloud architecture, and enterprise transformation.",
-    url: "https://your-domain.com",
+    url: "https://hashimnaveed.com",
     siteName: "Hashim Naveed",
     type: "website",
   },
@@ -35,7 +41,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
-      <body>
+      <body className={inter.className}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-222SKFEZ91"
           strategy="afterInteractive"
