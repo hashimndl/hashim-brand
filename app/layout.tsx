@@ -1,6 +1,6 @@
 import "./globals.css";
 import Link from "next/link";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 export const metadata = {
   metadataBase: new URL("https://hashimnaveed.com"), // replace after deploy
   title: {
