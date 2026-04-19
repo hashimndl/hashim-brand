@@ -134,6 +134,7 @@ export default function RootLayout({
         </main>
 
         <div className="footer-space" />
+        <SpeedInsights />
       </body>
     </html>
   );
