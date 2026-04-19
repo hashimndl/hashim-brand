@@ -1,5 +1,6 @@
 import { fetchLinkedInRSS } from "@/lib/fetchLinkedInRSS";
 import Link from "next/link";
+ import Image from "next/image";
 
 export const metadata = {
   title: "Senior Technology Consultant | AI Infrastructure · Cloud · DevOps",
@@ -48,7 +49,13 @@ export default async function Home() {
         </div>
 
         <div className="hero-card profile">
-          <img src="/profile.jpg" alt="Hashim Naveed" className="profile-photo" />
+          <Image
+          src="/profile.jpg"
+          alt="Hashim Naveed"
+          width={200}
+          height={200}
+          priority
+          />
           <div className="profile-name">Hashim Naveed</div>
           <div className="profile-role">
             Senior Technology Consultant <br />
