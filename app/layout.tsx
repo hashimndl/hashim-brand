@@ -1,6 +1,7 @@
 import "./globals.css";
 import Link from "next/link";
 import Script from "next/script";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 const inter = Inter({
@@ -8,39 +9,66 @@ const inter = Inter({
   display: "swap",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
+  metadataBase: new URL("https://hashimnaveed.com"),
   title: {
     default: "Hashim Naveed",
     template: "%s | Hashim Naveed",
   },
   description:
-    "Senior Technology Consultant | AI Infrastructure · Cloud (Azure/AWS/GCP) · DevOps · Digital Transformation | Accenture · Hamburg, Germany",
-
+    "Hashim Naveed is a Senior Technology Consultant in Hamburg specializing in AI infrastructure, cloud architecture, DevOps, enterprise transformation, and large-scale delivery across Europe.",
+  keywords: [
+    "Hashim Naveed",
+    "Senior Technology Consultant",
+    "AI Infrastructure",
+    "Cloud Architecture",
+    "DevOps",
+    "Azure",
+    "AWS",
+    "GCP",
+    "Enterprise Transformation",
+    "Hamburg",
+    "Germany",
+  ],
+  authors: [{ name: "Hashim Naveed" }],
+  creator: "Hashim Naveed",
+  publisher: "Hashim Naveed",
+  alternates: {
+    canonical: "https://hashimnaveed.com",
+  },
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
     apple: "/favicon.ico",
   },
-
   openGraph: {
     title: "Hashim Naveed",
     description:
-      "Senior Technology Consultant specializing in AI infrastructure, cloud architecture, and enterprise transformation.",
+      "Senior Technology Consultant specializing in AI infrastructure, cloud architecture, DevOps, and enterprise transformation.",
     url: "https://hashimnaveed.com",
     siteName: "Hashim Naveed",
+    locale: "en_US",
     type: "website",
   },
-
-  metadataBase: new URL("https://hashimnaveed.com"),
+  twitter: {
+    card: "summary_large_image",
+    title: "Hashim Naveed",
+    description:
+      "Senior Technology Consultant specializing in AI infrastructure, cloud architecture, DevOps, and enterprise transformation.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en">
       <body className={inter.className}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-222SKFEZ91"
@@ -61,11 +89,10 @@ export default function RootLayout({
               Hashim Naveed
             </Link>
 
-            <nav className="nav">
+            <nav className="nav" aria-label="Primary navigation">
               <Link href="/">Home</Link>
               <Link href="/about">About</Link>
-              <Link href="/projects">Projects</Link>
-              {/* <Link href="/signals">Signals</Link> */}
+              <Link href="/projects">Selected Work</Link>
               <Link href="/contact">Contact</Link>
             </nav>
           </div>
@@ -75,7 +102,21 @@ export default function RootLayout({
           <div className="page-shell">{children}</div>
         </main>
 
-        <div className="footer-space" />
+        <footer className="site-footer">
+          <div className="page-shell site-footer-inner">
+            <p>© {new Date().getFullYear()} Hashim Naveed. All rights reserved.</p>
+            <div className="site-footer-links">
+              <a
+                href="https://www.linkedin.com/in/hashimnaveed"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+              <a href="mailto:hashimndl@gmail.com">Email</a>
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   );

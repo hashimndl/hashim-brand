@@ -1,177 +1,190 @@
+import { fetchLinkedInRSS } from "@/lib/fetchLinkedInRSS";
+import Link from "next/link";
+import Image from "next/image";
+import Script from "next/script";
+
 export const metadata = {
-  title: "Projects",
+  title: "Hashim Naveed | Senior Technology Consultant | AI Infrastructure · Cloud · DevOps",
   description:
-    "Selected work by Hashim Naveed across AI infrastructure, hybrid cloud transformation, enterprise automation, and engineering systems.",
+    "Hashim Naveed is a Senior Technology Consultant in Hamburg specializing in AI infrastructure, cloud architecture, DevOps, and enterprise transformation.",
 };
 
-export default function ProjectsPage() {
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://hashimnaveed.com/#website",
+  url: "https://hashimnaveed.com",
+  name: "Hashim Naveed",
+  description:
+    "Personal portfolio and professional website of Hashim Naveed, Senior Technology Consultant.",
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://hashimnaveed.com/#person",
+  name: "Hashim Naveed",
+  url: "https://hashimnaveed.com",
+  image: "https://hashimnaveed.com/profile.jpg",
+  jobTitle: "Senior Technology Consultant",
+  description:
+    "Senior Technology Consultant specializing in AI infrastructure, cloud architecture, DevOps, and enterprise transformation.",
+  homeLocation: {
+    "@type": "Place",
+    name: "Hamburg, Germany",
+  },
+  worksFor: {
+    "@type": "Organization",
+    name: "Accenture",
+  },
+  sameAs: ["https://www.linkedin.com/in/hashimnaveed"],
+  knowsAbout: [
+    "AI Infrastructure",
+    "Cloud Architecture",
+    "Azure",
+    "AWS",
+    "GCP",
+    "DevOps",
+    "MLOps",
+    "Kubernetes",
+    "Terraform",
+    "Ansible",
+    "Enterprise Transformation",
+  ],
+};
+
+export default async function Home() {
+  const posts = await fetchLinkedInRSS();
+  const featuredPosts = posts.slice(0, 4);
+
   return (
     <>
-      <section className="section">
-        <div className="eyebrow">Selected Work</div>
+      <Script
+        id="website-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
+      <Script
+        id="person-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
 
-        <h1 className="page-title">
-          Systems I’ve built & scaled
-        </h1>
+      <section className="hero hero-compact">
+        <div className="hero-copy">
+          <div className="eyebrow">AI Infrastructure · Cloud Systems · Enterprise Transformation</div>
 
-        <p className="hero-subtitle">
-          A selection of enterprise systems, infrastructure platforms, and
-          engineering work focused on scale, reliability, and real-world impact.
-        </p>
-      </section>
+          <h1>Hashim Naveed</h1>
 
-      <section className="section">
-        <div className="card">
-          <div className="section-header">
-            <h2 className="section-title">
-              AI Infrastructure Platform (Enterprise)
-            </h2>
-          </div>
-
-          <p className="section-text">
-            Designed and operated AI-ready infrastructure environments enabling
-            machine learning workflows, automation, and scalable deployment across
-            enterprise cloud systems.
+          <p className="hero-subtitle">
+            I design and scale enterprise cloud and AI infrastructure systems that support
+            operational excellence and long-term business impact.
           </p>
 
-          <div className="grid-3" style={{ marginTop: 20 }}>
-            <div className="card">
-              <div className="feed-title">Scope</div>
-              <div className="feed-excerpt">
-                Multi-cloud architecture across Azure, AWS, and GCP supporting AI workloads.
-              </div>
-            </div>
+          <p className="hero-meta">
+            Senior Technology Consultant based in Hamburg with 13+ years of experience across
+            Azure, AWS, and GCP. I work across architecture, automation, platform reliability,
+            and delivery leadership.
+          </p>
 
-            <div className="card">
-              <div className="feed-title">My Role</div>
-              <div className="feed-excerpt">
-                Architecture design, system ownership, and leadership of cross-functional teams.
-              </div>
-            </div>
+          <div className="hero-actions">
+            <Link href="/about" className="btn btn-primary">
+              View Experience
+            </Link>
 
-            <div className="card">
-              <div className="feed-title">Impact</div>
-              <div className="feed-excerpt">
-                Enabled production-ready AI systems and improved deployment scalability.
-              </div>
-            </div>
+            <Link href="/projects" className="btn btn-secondary">
+              Selected Work
+            </Link>
+
+            <Link href="/contact" className="btn btn-secondary">
+              Contact
+            </Link>
+
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary"
+            >
+              Open Resume
+            </a>
           </div>
+        </div>
 
-          <div className="pill-grid" style={{ marginTop: 20 }}>
-            <div className="pill">Azure</div>
-            <div className="pill">AWS</div>
-            <div className="pill">GCP</div>
-            <div className="pill">MLOps</div>
-            <div className="pill">Kubernetes</div>
+        <div className="hero-card profile">
+          <Image
+            src="/profile.jpg"
+            alt="Hashim Naveed"
+            width={200}
+            height={200}
+            priority
+            className="profile-photo"
+          />
+          <div className="profile-name">Hashim Naveed</div>
+          <div className="profile-role">
+            Senior Technology Consultant <br />
+            Accenture · Hamburg, Germany
           </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="card">
-          <div className="section-header">
-            <h2 className="section-title">
-              Hybrid Cloud Transformation Program
-            </h2>
+      <section className="section section-tight">
+        <div className="section-header">
+          <h2 className="section-title">Impact at Scale</h2>
+        </div>
+
+        <div className="grid-3">
+          <div className="card">
+            <div className="metric-value">13+</div>
+            <div className="metric-label">Years Experience</div>
           </div>
 
-          <p className="section-text">
-            Led enterprise transformation initiatives focused on migrating and
-            modernizing legacy infrastructure into hybrid cloud environments.
-          </p>
-
-          <div className="grid-3" style={{ marginTop: 20 }}>
-            <div className="card">
-              <div className="feed-title">Scope</div>
-              <div className="feed-excerpt">
-                Large-scale infrastructure modernization across datacenters and cloud.
-              </div>
-            </div>
-
-            <div className="card">
-              <div className="feed-title">My Role</div>
-              <div className="feed-excerpt">
-                Led engineering teams (30+) and coordinated cross-team execution.
-              </div>
-            </div>
-
-            <div className="card">
-              <div className="feed-title">Impact</div>
-              <div className="feed-excerpt">
-                Improved system scalability, performance, and operational efficiency.
-              </div>
-            </div>
+          <div className="card">
+            <div className="metric-value">30+</div>
+            <div className="metric-label">Engineers Led</div>
           </div>
 
-          <div className="pill-grid" style={{ marginTop: 20 }}>
-            <div className="pill">Cloud Architecture</div>
-            <div className="pill">DevOps</div>
-            <div className="pill">Terraform</div>
-            <div className="pill">Automation</div>
+          <div className="card">
+            <div className="metric-value">3</div>
+            <div className="metric-label">Cloud Platforms</div>
           </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="card">
+      {featuredPosts.length > 0 && (
+        <section className="section">
           <div className="section-header">
-            <h2 className="section-title">
-              Enterprise Automation & CI/CD Systems
-            </h2>
+            <h2 className="section-title">Latest Insights</h2>
           </div>
 
-          <p className="section-text">
-            Built and optimized CI/CD pipelines and automation systems to support
-            scalable deployments and improve development workflows.
-          </p>
-
-          <div className="grid-3" style={{ marginTop: 20 }}>
-            <div className="card">
-              <div className="feed-title">Scope</div>
-              <div className="feed-excerpt">
-                CI/CD pipelines and infrastructure automation across enterprise environments.
-              </div>
-            </div>
-
-            <div className="card">
-              <div className="feed-title">My Role</div>
-              <div className="feed-excerpt">
-                Designed pipeline architecture and implemented automation frameworks.
-              </div>
-            </div>
-
-            <div className="card">
-              <div className="feed-title">Impact</div>
-              <div className="feed-excerpt">
-                Reduced deployment time and improved reliability of releases.
-              </div>
-            </div>
+          <div className="feed">
+            {featuredPosts.map((post) => (
+              <a
+                key={post.id}
+                href={post.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="feed-card"
+              >
+                <div className="feed-title">{post.title}</div>
+                <div className="feed-excerpt">{post.excerpt}</div>
+              </a>
+            ))}
           </div>
-
-          <div className="pill-grid" style={{ marginTop: 20 }}>
-            <div className="pill">CI/CD</div>
-            <div className="pill">DevOps</div>
-            <div className="pill">Ansible</div>
-            <div className="pill">Automation</div>
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className="section">
         <div className="cta">
-          <h2 className="section-title">
-            Want to go deeper?
-          </h2>
-
+          <h2 className="section-title">Open to meaningful opportunities</h2>
           <p>
-            I can walk through system architecture, design decisions, and real-world
-            tradeoffs behind these projects.
+            I’m open to senior consulting, cloud architecture, AI infrastructure, and
+            engineering leadership opportunities across Europe.
           </p>
-
           <div className="hero-actions" style={{ justifyContent: "center" }}>
-            <a href="/contact" className="btn btn-primary">
+            <Link href="/contact" className="btn btn-primary">
               Contact Me
-            </a>
+            </Link>
           </div>
         </div>
       </section>
