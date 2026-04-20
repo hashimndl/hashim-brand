@@ -1,11 +1,59 @@
 import { fetchLinkedInRSS } from "@/lib/fetchLinkedInRSS";
 import Link from "next/link";
 import Image from "next/image";
+import Script from "next/script";
 
 export const metadata = {
   title: "Hashim Naveed | Senior Technology Consultant | AI Infrastructure · Cloud · DevOps",
   description:
-    "Hashim Naveed is a Senior Technology Consultant in Hamburg specializing in AI infrastructure, cloud architecture, DevOps, enterprise transformation, and large-scale delivery.",
+    "Hashim Naveed is a Senior Technology Consultant in Hamburg specializing in AI infrastructure, cloud architecture, DevOps, and enterprise transformation.",
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://hashimnaveed.com/#website",
+  url: "https://hashimnaveed.com",
+  name: "Hashim Naveed",
+  description:
+    "Personal portfolio and professional website of Hashim Naveed, Senior Technology Consultant.",
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://hashimnaveed.com/#person",
+  name: "Hashim Naveed",
+  url: "https://hashimnaveed.com",
+  image: "https://hashimnaveed.com/profile.jpg",
+  jobTitle: "Senior Technology Consultant",
+  description:
+    "Senior Technology Consultant specializing in AI infrastructure, cloud architecture, DevOps, and enterprise transformation.",
+  homeLocation: {
+    "@type": "Place",
+    name: "Hamburg, Germany",
+  },
+  worksFor: {
+    "@type": "Organization",
+    name: "Accenture",
+  },
+  sameAs: [
+    "https://www.linkedin.com/in/hashimnaveed",
+    "https://github.com/hashimndl",
+  ],
+  knowsAbout: [
+    "AI Infrastructure",
+    "Cloud Architecture",
+    "Azure",
+    "AWS",
+    "GCP",
+    "DevOps",
+    "MLOps",
+    "Kubernetes",
+    "Terraform",
+    "Ansible",
+    "Enterprise Transformation",
+  ],
 };
 
 export default async function Home() {
@@ -14,6 +62,17 @@ export default async function Home() {
 
   return (
     <>
+      <Script
+        id="website-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
+      <Script
+        id="person-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+
       <section className="hero hero-compact">
         <div className="hero-copy">
           <div className="eyebrow">AI Infrastructure · Cloud Systems · Enterprise Transformation</div>
@@ -22,14 +81,13 @@ export default async function Home() {
 
           <p className="hero-subtitle">
             I design and scale enterprise cloud and AI infrastructure systems that support
-            operational excellence, modernization, and long-term business growth.
+            operational excellence and long-term business impact.
           </p>
 
           <p className="hero-meta">
             Senior Technology Consultant based in Hamburg with 13+ years of experience across
             Azure, AWS, and GCP. I work across architecture, automation, platform reliability,
-            and delivery leadership — helping complex environments move from legacy constraints
-            to scalable execution.
+            delivery leadership, and enterprise transformation.
           </p>
 
           <div className="hero-actions">
@@ -59,7 +117,7 @@ export default async function Home() {
         <div className="hero-card profile">
           <Image
             src="/profile.jpg"
-            alt="Portrait of Hashim Naveed"
+            alt="Hashim Naveed"
             width={200}
             height={200}
             priority
@@ -67,8 +125,7 @@ export default async function Home() {
           />
           <div className="profile-name">Hashim Naveed</div>
           <div className="profile-role">
-            Senior Technology Consultant
-            <br />
+            Senior Technology Consultant <br />
             Accenture · Hamburg, Germany
           </div>
         </div>
@@ -76,29 +133,23 @@ export default async function Home() {
 
       <section className="section section-tight">
         <div className="section-header">
-          <div>
-            <h2 className="section-title">Impact at Scale</h2>
-            <p className="section-text">
-              A career built around cloud infrastructure, enterprise systems, automation, and
-              leadership in high-responsibility environments.
-            </p>
-          </div>
+          <h2 className="section-title">Impact at Scale</h2>
         </div>
 
         <div className="grid-3">
           <div className="card">
             <div className="metric-value">13+</div>
-            <div className="metric-label">Years of experience</div>
+            <div className="metric-label">Years Experience</div>
           </div>
 
           <div className="card">
             <div className="metric-value">30+</div>
-            <div className="metric-label">Engineers led across teams and delivery</div>
+            <div className="metric-label">Engineers Led</div>
           </div>
 
           <div className="card">
             <div className="metric-value">3</div>
-            <div className="metric-label">Cloud ecosystems: Azure, AWS, and GCP</div>
+            <div className="metric-label">Cloud Platforms</div>
           </div>
         </div>
       </section>
@@ -106,94 +157,101 @@ export default async function Home() {
       <section className="section">
         <div className="section-header">
           <div>
-            <h2 className="section-title">What I Do</h2>
+            <h2 className="section-title">Selected Technical Work</h2>
             <p className="section-text">
-              Senior-level systems thinking across architecture, operations, modernization, and
-              engineering execution.
+              Public GitHub repositories that demonstrate how I think about delivery systems,
+              enterprise architecture, and production-oriented technical design.
             </p>
           </div>
+
+          <a
+            href="https://github.com/hashimndl"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-secondary"
+          >
+            GitHub Profile
+          </a>
         </div>
 
-        <div className="pill-grid">
-          {[
-            "Cloud Architecture",
-            "AI Infrastructure",
-            "Hybrid Cloud",
-            "DevOps & CI/CD",
-            "Kubernetes",
-            "Terraform / Ansible",
-            "MLOps",
-            "ServiceNow",
-            "SAP / ITSM",
-            "Engineering Leadership",
-            "Enterprise Transformation",
-            "Platform Reliability",
-          ].map((skill) => (
-            <div key={skill} className="pill">
-              {skill}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="section">
         <div className="grid-2">
-          <div className="card">
-            <div className="feed-title">How I create value</div>
-            <div className="feed-excerpt">
-              I help organizations design AI-ready, cloud-enabled, and operationally resilient
-              environments. My work spans hybrid infrastructure, automation, service delivery,
-              and platform evolution in enterprise settings.
+          <a
+            href="https://github.com/hashimndl/enterprise-devops-blueprint"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="card"
+          >
+            <div className="eyebrow">DevOps · Delivery · Operations</div>
+            <div className="feed-title" style={{ marginTop: 10 }}>
+              Enterprise DevOps Blueprint
             </div>
-          </div>
+            <div className="feed-excerpt">
+              A production-oriented blueprint covering CI/CD pipelines, infrastructure as
+              code, Kubernetes deployment patterns, observability, and operational runbooks.
+            </div>
 
-          <div className="card">
-            <div className="feed-title">What defines my approach</div>
-            <div className="feed-excerpt">
-              I combine technical depth with delivery ownership and people leadership — aligning
-              systems, teams, and execution around outcomes that scale in the real world.
+            <div className="pill-grid" style={{ marginTop: 18 }}>
+              <div className="pill">CI/CD</div>
+              <div className="pill">Terraform</div>
+              <div className="pill">Kubernetes</div>
+              <div className="pill">Helm</div>
             </div>
-          </div>
+
+            <div
+              className="hero-actions"
+              style={{ marginTop: 20 }}
+            >
+              <span className="btn btn-primary">Open Repository</span>
+            </div>
+          </a>
+
+          <a
+            href="https://github.com/hashimndl/system-design-enterprise-case"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="card"
+          >
+            <div className="eyebrow">Architecture · Tradeoffs · Scale</div>
+            <div className="feed-title" style={{ marginTop: 10 }}>
+              Enterprise AI Platform — System Design Case
+            </div>
+            <div className="feed-excerpt">
+              A senior-level case study demonstrating requirements framing, architecture
+              decisions, scalability planning, security thinking, and enterprise constraints.
+            </div>
+
+            <div className="pill-grid" style={{ marginTop: 18 }}>
+              <div className="pill">System Design</div>
+              <div className="pill">Scalability</div>
+              <div className="pill">Security</div>
+              <div className="pill">Reliability</div>
+            </div>
+
+            <div
+              className="hero-actions"
+              style={{ marginTop: 20 }}
+            >
+              <span className="btn btn-primary">Open Repository</span>
+            </div>
+          </a>
         </div>
-      </section>
 
-      <section className="section">
-        <div className="section-header">
-          <div>
-            <h2 className="section-title">Selected Work</h2>
-            <p className="section-text">
-              Enterprise-focused work across AI infrastructure, cloud transformation, automation,
-              and platform delivery.
-            </p>
-          </div>
-
-          <Link href="/projects" className="btn btn-secondary">
-            View all
-          </Link>
-        </div>
-
-        <div className="grid-3">
+        <div className="grid-2" style={{ marginTop: 18 }}>
           <div className="card">
-            <div className="feed-title">AI Infrastructure Platforms</div>
+            <div className="feed-title">Why these matter</div>
             <div className="feed-excerpt">
-              Building and operating AI-ready environments that support scalable enterprise
-              workloads, automation, and platform maturity.
+              These repositories are not random coding samples. They are structured technical
+              artifacts designed to show how I approach architecture, delivery maturity,
+              operational clarity, and system-level decision-making.
             </div>
           </div>
 
           <div className="card">
-            <div className="feed-title">Hybrid Cloud Transformation</div>
+            <div className="feed-title">How to read them</div>
             <div className="feed-excerpt">
-              Helping organizations modernize infrastructure and evolve from legacy constraints
-              toward more flexible and resilient cloud-aligned architectures.
-            </div>
-          </div>
-
-          <div className="card">
-            <div className="feed-title">Automation & Delivery Systems</div>
-            <div className="feed-excerpt">
-              Improving reliability, speed, and operational consistency through DevOps, CI/CD,
-              and enterprise automation practices.
+              Start with the README, review the architecture diagrams, then move into
+              tradeoffs, decisions, and operational structure. That is where the strongest
+              technical signal is.
             </div>
           </div>
         </div>
@@ -202,12 +260,7 @@ export default async function Home() {
       {featuredPosts.length > 0 && (
         <section className="section">
           <div className="section-header">
-            <div>
-              <h2 className="section-title">Latest LinkedIn Insights</h2>
-              <p className="section-text">
-                Selected writing and professional insights pulled from LinkedIn.
-              </p>
-            </div>
+            <h2 className="section-title">Latest Insights</h2>
           </div>
 
           <div className="feed">
@@ -232,19 +285,19 @@ export default async function Home() {
           <h2 className="section-title">Open to meaningful opportunities</h2>
           <p>
             I’m open to senior consulting, cloud architecture, AI infrastructure, and
-            engineering leadership opportunities in Germany and across Europe.
+            engineering leadership opportunities across Europe.
           </p>
           <div className="hero-actions" style={{ justifyContent: "center" }}>
             <Link href="/contact" className="btn btn-primary">
               Contact Me
             </Link>
             <a
-              href="https://www.linkedin.com/in/hashimnaveed"
+              href="https://github.com/hashimndl"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary"
             >
-              LinkedIn
+              GitHub
             </a>
           </div>
         </div>

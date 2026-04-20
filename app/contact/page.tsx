@@ -35,7 +35,7 @@ export default function ContactPage() {
           </div>
 
           <div className="card">
-            <div className="feed-title">Professional Profile</div>
+            <div className="feed-title">Professional Profiles</div>
             <div className="contact-list" style={{ marginTop: 18 }}>
               <a
                 href="https://www.linkedin.com/in/hashimnaveed"
@@ -44,9 +44,18 @@ export default function ContactPage() {
               >
                 LinkedIn Profile
               </a>
+
+              <a
+                href="https://github.com/hashimndl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub Profile
+              </a>
+
               <div style={{ color: "var(--muted)" }}>
-                Best place to review my career history, current positioning, and broader
-                professional context.
+                LinkedIn provides professional context. GitHub highlights selected technical
+                architecture and DevOps work.
               </div>
             </div>
           </div>
@@ -69,7 +78,7 @@ export default function ContactPage() {
       <section className="section">
         <div className="cta">
           <h2 className="section-title">Ready to talk?</h2>
-          <p>Email is fastest. LinkedIn is best for professional context.</p>
+          <p>Email is fastest. LinkedIn and GitHub provide additional professional context.</p>
           <div className="hero-actions" style={{ justifyContent: "center" }}>
             <a href="mailto:hashimndl@gmail.com" className="btn btn-primary">
               Send Email
@@ -80,7 +89,15 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               className="btn btn-secondary"
             >
-              Message on LinkedIn
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/hashimndl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary"
+            >
+              GitHub
             </a>
           </div>
         </div>

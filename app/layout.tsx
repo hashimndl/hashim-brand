@@ -29,6 +29,8 @@ export const metadata: Metadata = {
     "Enterprise Transformation",
     "Hamburg",
     "Germany",
+    "System Design",
+    "Enterprise DevOps",
   ],
   authors: [{ name: "Hashim Naveed" }],
   creator: "Hashim Naveed",
@@ -105,6 +107,7 @@ export default function RootLayout({
         <footer className="site-footer">
           <div className="page-shell site-footer-inner">
             <p>© {new Date().getFullYear()} Hashim Naveed. All rights reserved.</p>
+
             <div className="site-footer-links">
               <a
                 href="https://www.linkedin.com/in/hashimnaveed"
@@ -112,6 +115,13 @@ export default function RootLayout({
                 rel="noopener noreferrer"
               >
                 LinkedIn
+              </a>
+              <a
+                href="https://github.com/hashimndl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
               </a>
               <a href="mailto:hashimndl@gmail.com">Email</a>
             </div>

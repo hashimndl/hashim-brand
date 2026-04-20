@@ -39,7 +39,10 @@ const profileJsonLd = {
         name: "Bahria University",
       },
     ],
-    sameAs: ["https://www.linkedin.com/in/hashimnaveed"],
+    sameAs: [
+      "https://www.linkedin.com/in/hashimnaveed",
+      "https://github.com/hashimndl",
+    ],
     knowsAbout: [
       "AI Infrastructure",
       "Cloud Architecture",
@@ -78,6 +81,11 @@ export default function AboutPage() {
         <p className="hero-meta">
           Currently at Accenture in Hamburg, leading teams and designing scalable hybrid cloud
           environments across Azure, AWS, and GCP.
+        </p>
+
+        <p className="hero-meta">
+          Selected architecture and DevOps work is available on GitHub, including enterprise
+          system design case studies and infrastructure blueprints.
         </p>
       </section>
 
@@ -125,6 +133,40 @@ export default function AboutPage() {
             <div className="timeline-role">IT Automation Engineer — Merck</div>
             <div className="timeline-meta">2019 – 2020</div>
           </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="section-header">
+          <h2 className="section-title">Technical Work</h2>
+        </div>
+
+        <div className="grid-2">
+          <a
+            href="https://github.com/hashimndl/enterprise-devops-blueprint"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="card"
+          >
+            <div className="feed-title">Enterprise DevOps Blueprint</div>
+            <div className="feed-excerpt">
+              A structured DevOps repository covering CI/CD, infrastructure as code,
+              observability, delivery systems, and operational runbooks.
+            </div>
+          </a>
+
+          <a
+            href="https://github.com/hashimndl/system-design-enterprise-case"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="card"
+          >
+            <div className="feed-title">Enterprise AI Platform — System Design Case</div>
+            <div className="feed-excerpt">
+              A practical system design case study focused on architecture, tradeoffs,
+              scalability, reliability, and enterprise constraints.
+            </div>
+          </a>
         </div>
       </section>
 
