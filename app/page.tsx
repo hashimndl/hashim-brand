@@ -58,7 +58,6 @@ const personJsonLd = {
 
 export default async function Home() {
   const posts = await fetchLinkedInRSS();
-  const featuredPosts = posts.slice(0, 4);
 
   return (
     <>
@@ -80,15 +79,16 @@ export default async function Home() {
           <h1>Hashim Naveed</h1>
 
           <p className="hero-subtitle">
-            I design and scale enterprise cloud and AI infrastructure systems that support
-            operational excellence and long-term business impact.
+            I lead enterprise cloud and AI infrastructure initiatives across architecture,
+            delivery, and operations.
           </p>
 
           <p className="hero-meta">
-            Senior Technology Consultant based in Hamburg with 13+ years of experience across
-            Azure, AWS, and GCP. I work across architecture, automation, platform reliability,
-            delivery leadership, and enterprise transformation.
+            13+ years designing and scaling systems across Azure, AWS, and GCP — spanning
+            platform engineering, automation, reliability, and enterprise transformation.
           </p>
+
+          <div className="hero-meta">Accenture · Azure · AWS · GCP · Enterprise Systems</div>
 
           <div className="hero-actions">
             <Link href="/about" className="btn btn-primary">
@@ -159,7 +159,7 @@ export default async function Home() {
           <div>
             <h2 className="section-title">Selected Technical Work</h2>
             <p className="section-text">
-              Public GitHub repositories that demonstrate how I think about delivery systems,
+              Public GitHub repositories demonstrating how I think about delivery systems,
               enterprise architecture, and production-oriented technical design.
             </p>
           </div>
@@ -197,10 +197,7 @@ export default async function Home() {
               <div className="pill">Helm</div>
             </div>
 
-            <div
-              className="hero-actions"
-              style={{ marginTop: 20 }}
-            >
+            <div className="hero-actions" style={{ marginTop: 20 }}>
               <span className="btn btn-primary">Open Repository</span>
             </div>
           </a>
@@ -227,10 +224,7 @@ export default async function Home() {
               <div className="pill">Reliability</div>
             </div>
 
-            <div
-              className="hero-actions"
-              style={{ marginTop: 20 }}
-            >
+            <div className="hero-actions" style={{ marginTop: 20 }}>
               <span className="btn btn-primary">Open Repository</span>
             </div>
           </a>
@@ -240,9 +234,9 @@ export default async function Home() {
           <div className="card">
             <div className="feed-title">Why these matter</div>
             <div className="feed-excerpt">
-              These repositories are not random coding samples. They are structured technical
-              artifacts designed to show how I approach architecture, delivery maturity,
-              operational clarity, and system-level decision-making.
+              These repositories are structured technical artifacts designed to show how I
+              approach architecture, delivery maturity, operational clarity, and system-level
+              decision-making.
             </div>
           </div>
 
@@ -257,28 +251,44 @@ export default async function Home() {
         </div>
       </section>
 
-      {featuredPosts.length > 0 && (
-        <section className="section">
-          <div className="section-header">
+      <section className="section">
+        <div className="section-header">
+          <div>
             <h2 className="section-title">Latest Insights</h2>
+            <p className="section-text">
+              Selected writing and perspectives from LinkedIn on cloud, AI infrastructure,
+              enterprise delivery, and systems thinking.
+            </p>
           </div>
 
-          <div className="feed">
-            {featuredPosts.map((post) => (
-              <a
-                key={post.id}
-                href={post.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="feed-card"
-              >
-                <div className="feed-title">{post.title}</div>
-                <div className="feed-excerpt">{post.excerpt}</div>
-              </a>
-            ))}
-          </div>
-        </section>
-      )}
+          <a
+            href="https://www.linkedin.com/in/hashimnaveed"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-secondary"
+          >
+            LinkedIn Profile
+          </a>
+        </div>
+
+        <div className="grid-2">
+          {posts.map((post) => (
+            <a
+              key={post.id}
+              href={post.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="feed-card"
+            >
+              <div className="eyebrow">LinkedIn Insight</div>
+              <div className="feed-title" style={{ marginTop: 10 }}>
+                {post.title}
+              </div>
+              <div className="feed-excerpt">{post.excerpt}</div>
+            </a>
+          ))}
+        </div>
+      </section>
 
       <section className="section">
         <div className="cta">

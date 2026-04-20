@@ -13,14 +13,13 @@ export default function ProjectsPage() {
         <h1 className="page-title">Technical work that reflects how I think, design, and deliver</h1>
 
         <p className="hero-subtitle">
-          A curated set of technical artifacts demonstrating enterprise DevOps, system design,
-          cloud architecture, and operational thinking.
+          A curated set of technical work demonstrating enterprise DevOps, system design,
+          and production-oriented architecture.
         </p>
 
         <p className="hero-meta">
-          These repositories are intentionally structured to reflect senior-level engineering
-          and architecture work — focusing on system design, delivery maturity, tradeoffs,
-          and production-oriented practices.
+          These repositories reflect how I structure delivery systems, design architectures,
+          and reason through tradeoffs in real-world enterprise environments.
         </p>
       </section>
 
