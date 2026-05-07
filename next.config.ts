@@ -17,17 +17,26 @@ const securityHeaders = [
     value: "camera=(), microphone=(), geolocation=()",
   },
   {
+    key: "Cross-Origin-Opener-Policy",
+    value: "same-origin",
+  },
+  {
+    key: "Strict-Transport-Security",
+    value: "max-age=63072000; includeSubDomains; preload",
+  },
+  {
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
-      "img-src 'self' data: https:",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com",
       "style-src 'self' 'unsafe-inline'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
-      "connect-src 'self' https://rss.app",
+      "img-src 'self' data: blob: https:",
       "font-src 'self' data:",
-      "object-src 'self' blob:",
+      "connect-src 'self' https://rss.app https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com",
+      "frame-src 'self'",
+      "object-src 'none'",
       "base-uri 'self'",
-      "form-action 'self' mailto:",
+      "form-action 'self'",
       "frame-ancestors 'self'",
       "upgrade-insecure-requests",
     ].join("; "),
@@ -35,6 +44,9 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
+  reactStrictMode: true,
+  poweredByHeader: false,
+
   async headers() {
     return [
       {
@@ -56,7 +68,35 @@ const nextConfig = {
             key: "X-Content-Type-Options",
             value: "nosniff",
           },
+          {
+            key: "Content-Security-Policy",
+            value: [
+              "default-src 'self'",
+              "frame-ancestors 'self'",
+              "object-src 'none'",
+            ].join("; "),
+          },
         ],
+      },
+    ];
+  },
+
+  async redirects() {
+    return [
+      {
+        source: "/about/",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/projects/",
+        destination: "/projects",
+        permanent: true,
+      },
+      {
+        source: "/contact/",
+        destination: "/contact",
+        permanent: true,
       },
     ];
   },
